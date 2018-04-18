@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+[User, Relationship, Media].each do |model|
+  model.delete_all
+end
+
 users = Array(1..10).map do |n|
   User.create!(
     username: Faker::Internet.user_name,
