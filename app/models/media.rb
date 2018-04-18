@@ -1,3 +1,3 @@
-class Relationship < ApplicationRecord
+class Media < ApplicationRecord
   belongs_to :user
 end
