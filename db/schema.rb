@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_18_055407) do
+ActiveRecord::Schema.define(version: 2018_04_18_074940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "media", force: :cascade do |t|
-    t.string "type"
+    t.string "media_type"
     t.json "images"
     t.json "videos"
     t.string "filter"
