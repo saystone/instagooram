@@ -6,7 +6,31 @@ Types::UserType = GraphQL::ObjectType.define do
   field :profile_picture, types.String
   field :bio, types.String
   field :website, types.String
-  field :followers, types[Types::UserType]
-  field :followings, types[Types::UserType]
-  field :media, types[Types::MediaType]
+  field :counts, Types::UserCountType do
+    resolve -> (user, args, ctx) {
+      user
+    }
+  end
+end
+
+Types::UserCountType = GraphQL::ObjectType.define do
+  name "UserCountType"
+  field :followers do
+    type types.Int
+    resolve -> (user, args, ctx) {
+      user.followers.count
+    }
+  end
+  field :followings do
+    type types.Int
+    resolve -> (user, args, ctx) {
+      user.followings.count
+    }
+  end
+  field :media do
+    type types.Int
+    resolve -> (user, args, ctx) {
+      user.media.count
+    }
+  end
 end
