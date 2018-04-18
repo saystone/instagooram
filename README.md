@@ -10,9 +10,13 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
+```
+instagooram$ bundle install
+```
+
 ### PostgreSQL 설치
 ```
-$ brew install postgresql
+instagooram$ brew install postgresql
 ```
 
 ### PostgreSQL 유저 생성
@@ -30,6 +34,7 @@ $ rake db:migrate
 ```
 
 * Database initialization
+
 
 
 * How to run the test suite
