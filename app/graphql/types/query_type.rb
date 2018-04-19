@@ -29,12 +29,15 @@ Types::QueryType = GraphQL::ObjectType.define do
   end
 
   # GET/media/media-id Get information about a media object.
+  # GET/media/shortcode/shortcodeGet information about a media object.
   field :media do
     type Types::MediaType
-    argument :id, !types.ID
-    description 'Find a media by id'
+    argument :id, types.ID
+    argument :shortcode, types.ID
+    description 'Find a media by id or shortcode'
     resolve lambda { |_media, args, _ctx|
-      Media.find(args['id'])
+      return Media.find(args['id']) if args['id']
+      return Media.find_by_shortcode(args['shortcode']) if args['shortcode']
     }
   end
 end

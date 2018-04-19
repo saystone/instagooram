@@ -20,8 +20,8 @@ end
 
 Array(1..20).each do |_|
   Relationship.create!(
-    following: users.sample,
-    follower: users.sample
+    follow: users.sample,
+    followed_by: users.sample
   )
 end
 
@@ -48,7 +48,8 @@ Array(1..10).each do
     user: users.sample,
     media_type: 'image',
     images: images,
-    filter: 'Sephia'
+    filter: 'Grayscale',
+    shortcode: Faker::Internet.password(10, 10)
   )
 end
 
@@ -71,6 +72,7 @@ Array(1..10).each do |_|
     media_type: 'video',
     images: images,
     filter: 'Sephia',
-    videos: videos
+    videos: videos,
+    shortcode: Faker::Internet.password(10, 10)
   )
 end

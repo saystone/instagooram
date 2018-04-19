@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_18_074940) do
+ActiveRecord::Schema.define(version: 2018_04_19_161857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_04_18_074940) do
     t.json "videos"
     t.string "filter"
     t.integer "user_id"
+    t.string "shortcode"
   end
 
   create_table "relationships", force: :cascade do |t|
