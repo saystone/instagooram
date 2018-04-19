@@ -18,20 +18,32 @@ Types::UserType = GraphQL::ObjectType.define do
       user.media
     }
   end
+  field :followed_by do
+    type types[Types::UserType]
+    resolve lambda { |user, _args, _ctx|
+      user.followed_by_users
+    }
+  end
+  field :follows do
+    type types[Types::UserType]
+    resolve lambda { |user, _args, _ctx|
+      user.follow_users
+    }
+  end
 end
 
 Types::UserCountType = GraphQL::ObjectType.define do
   name 'UserCount'
-  field :followers do
+  field :followed_by do
     type types.Int
     resolve lambda { |user, _args, _ctx|
-      user.followers.count
+      user.followed_by_users.count
     }
   end
-  field :followings do
+  field :follows do
     type types.Int
     resolve lambda { |user, _args, _ctx|
-      user.followings.count
+      user.follow_users.count
     }
   end
   field :media do
