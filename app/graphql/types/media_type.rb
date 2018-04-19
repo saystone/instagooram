@@ -1,5 +1,5 @@
 Types::MediaType = GraphQL::ObjectType.define do
-  name "Media"
+  name 'Media'
   field :id, types.ID
   field :media_type, types.String
   field :images, types.String

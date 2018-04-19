@@ -1,5 +1,5 @@
 Types::QueryType = GraphQL::ObjectType.define do
-  name "Query"
+  name 'Query'
   # GET/users/self Get information about the owner of the access token.
   # GET/users/self/media/recent Get the most recent media of the user.
   # GET/users/self/media/liked Get the recent media liked by the user.
@@ -9,9 +9,9 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :user do
     type Types::UserType
     argument :id, types.ID
-    description "Find a user by id"
-    resolve -> (obj, args, ctx) {
-      User.find(args["id"])
+    description 'Find a user by id'
+    resolve lambda { |_user, args, _ctx|
+      User.find(args['id'])
     }
   end
 
@@ -19,9 +19,9 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :searchUser do
     type types[Types::UserType]
     argument :q, types.String
-    description "Search a user by query"
-    resolve -> (obj, args, ctx) {
-      User.where("full_name LIKE ?", "%#{args["q"]}%")
+    description 'Search a user by query'
+    resolve lambda { |_user, args, _ctx|
+      User.where('full_name LIKE ?', "%#{args['q']}%")
     }
   end
 end
