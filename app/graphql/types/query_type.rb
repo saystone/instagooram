@@ -27,4 +27,14 @@ Types::QueryType = GraphQL::ObjectType.define do
       User.where('full_name LIKE ?', "%#{args['q']}%")
     }
   end
+
+  # GET/media/media-id Get information about a media object.
+  field :media do
+    type Types::MediaType
+    argument :id, !types.ID
+    description 'Find a media by id'
+    resolve lambda { |_media, args, _ctx|
+      Media.find(args['id'])
+    }
+  end
 end
