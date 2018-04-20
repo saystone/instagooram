@@ -30,6 +30,12 @@ Types::UserType = GraphQL::ObjectType.define do
       user.follow_users
     }
   end
+  field :liked do
+    type types[Types::MediaType]
+    resolve lambda { |user, _args, _ctx|
+      user.liked_media
+    }
+  end
 end
 
 Types::UserCountType = GraphQL::ObjectType.define do
