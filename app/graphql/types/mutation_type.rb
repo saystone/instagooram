@@ -6,4 +6,6 @@ Types::MutationType = GraphQL::ObjectType.define do
   field :disLike, function: Mutations::DisLike.new
   field :follow, function: Mutations::Follow.new
   field :unfollow, function: Mutations::UnFollow.new
+  field :createUser, function: Mutations::CreateUser.new
+  # field :createMedia, function: Mutations::CreateMedia.new
 end
