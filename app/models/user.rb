@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :followed_by, foreign_key: 'follower_id', class_name: 'Relationship'
   has_many :followed_by_users, through: :followed_by, source: :follow
   has_many :media
+  has_many :likes
+  has_many :liked_media, through: :likes, source: :media
 
   validates :username, presence: true, uniqueness: true
 end
