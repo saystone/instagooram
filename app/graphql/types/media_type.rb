@@ -5,6 +5,7 @@ Types::MediaType = GraphQL::ObjectType.define do
   field :images, types.String
   field :videos, types.String
   field :filter, types.String
+  field :shortcode, types.String
   field :likes do
     type types[Types::UserType]
     resolve lambda { |media, _args, _ctx|
