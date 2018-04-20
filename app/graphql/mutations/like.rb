@@ -13,12 +13,9 @@ class Mutations::Like < GraphQL::Function
     like = ApplicationRecord::Like.where(
       user: ctx[:current_user],
       media: media
-    ).first
+    )
     raise GraphQL::ExecutionError, 'Already liked' if like.present?
 
-    ApplicationRecord::Like.create!(
-      user: ctx[:current_user],
-      media: media
-    )
+    like.create!
   end
 end
