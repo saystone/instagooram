@@ -1,4 +1,4 @@
-class Mutations::DisLike < GraphQL::Function
+class Mutations::LikeMedia < GraphQL::Function
   argument :media_id, !types.ID
   type Types::LikeType
 
@@ -10,12 +10,12 @@ class Mutations::DisLike < GraphQL::Function
     media = Media.find(args['media_id'])
     return unless media
 
-    like = ApplicationRecord::Like.where(
+    like = Like.where(
       user: ctx[:current_user],
       media: media
-    ).first
-    raise GraphQL::ExecutionError, 'Like Not Found' if like.blank?
+    )
+    raise GraphQL::ExecutionError, 'Already liked' if like.present?
 
-    like.destroy
+    like.create!
   end
 end
