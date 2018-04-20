@@ -11,8 +11,8 @@ class Mutations::UnFollowUser < GraphQL::Function
     return unless user
 
     relationship = Relationship.where(
-      follow: user,
-      followed_by: ctx[:current_user]
+      follow: ctx[:current_user],
+      followed_by: user
     ).first
     raise GraphQL::ExecutionError, 'Relationship not found' if relationship.blank?
 

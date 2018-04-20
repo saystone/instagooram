@@ -11,8 +11,8 @@ class Mutations::FollowUser < GraphQL::Function
     return unless user
 
     relationship = Relationship.where(
-      follow: user,
-      followed_by: ctx[:current_user]
+      follow: ctx[:current_user],
+      followed_by: user
     )
     raise GraphQL::ExecutionError, 'Already followed' if relationship.present?
 
