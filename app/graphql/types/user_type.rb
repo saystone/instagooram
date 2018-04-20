@@ -12,7 +12,7 @@ Types::UserType = GraphQL::ObjectType.define do
       user
     }
   end
-  field :recentMedia do
+  field :media do
     type types[Types::MediaType]
     resolve lambda { |user, _args, _ctx|
       user.media
