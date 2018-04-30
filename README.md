@@ -47,9 +47,9 @@ instagooram$ eb init
 instagooram$ eb create
 ```
 2. Set the main database to PostgreSQL. 
-- Go to ElasticBeanstalk on AWS Management Console. And select app.
-- Go to Configuration > Database And select database engine to postgres. And Check other options.
-- Click Save button on corner of right bottom. Then wait for restarting app.
+  - Go to ElasticBeanstalk on AWS Management Console. And select app.
+  - Go to Configuration > Database And select database engine to postgres. And Check other options.
+  - Click Save button on corner of right bottom. Then wait for restarting app.
 
 ---
 
@@ -75,11 +75,11 @@ instagooram$ eb ssh
 
 ### API
 1. Support Coverage
-- Users, Relationships, Media, Likes
+  - Users, Relationships, Media, Likes
 
 2. How can I find API spec?
-- You can find out `Insomnia_2018-04-20_instagooram.json` file on the project root.
-- Use this awesome REST/GraphQL API Client: [Insomnia REST API Client](https://insomnia.rest/download/) and Import it.
+  - You can find out `Insomnia_2018-04-20_instagooram.json` file on the project root.
+  - Use this awesome REST/GraphQL API Client: [Insomnia REST API Client](https://insomnia.rest/download/) and Import it.
 
 ### More things to try
 - Test code
