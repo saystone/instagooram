@@ -1,0 +1,365 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-04-20T09:21:47.457Z",
+	"__export_source": "insomnia.desktop.app:v5.15.0",
+	"resources": [
+		{
+			"_id": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"created": 1524041313717,
+			"description": "",
+			"modified": 1524041313717,
+			"name": "Insomnia",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_f026bde923434d56957a0320da2b283c",
+			"color": null,
+			"created": 1524041313779,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1524208965316,
+			"name": "New Environment",
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_b6064737a5a7482da4e63f3815cf4c9a",
+			"cookies": [],
+			"created": 1524041313890,
+			"modified": 1524041313890,
+			"name": "Default Jar",
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_c7aae861fd5c4ae697dd07614adacbf6",
+			"authentication": {
+				"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.sd4rLkb8ooi0lfXWtRlrIJ2h_atBrfXLPt0EYvpWQlw",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query {\\n\\tuser {\\n\\t\\tid\\n\\t\\tusername\\n\\t\\tfull_name\\n\\t\\tprofile_picture\\n\\t\\tbio\\n\\t\\twebsite\\n\\t\\tcounts {\\n\\t\\t\\tfollowed_by\\n\\t\\t\\tfollows\\n\\t\\t\\tmedia\\n\\t\\t}\\n\\t\\tfollows {\\n\\t\\t\\tid\\n\\t\\t\\tusername\\n\\t\\t}\\n\\t\\tfollowed_by {\\n\\t\\t\\tid\\n\\t\\t\\tusername\\n\\t\\t}\\n\\t\\trecent {\\n\\t\\t\\tid\\n\\t\\t\\tmedia_type\\n\\t\\t\\timages\\n\\t\\t\\tvideos\\n\\t\\t\\tshortcode\\n\\t\\t\\tfilter\\n\\t\\t}\\n\\t}\\n}\"}"
+			},
+			"created": 1524041338543,
+			"description": "- 매칭되는 Instagram API: \n\t- GET /users/user-id Get information about a user.\n\t- GET /users/user-id/media/recent Get the most recent media of a user.\n\t- GET /users/self/media/liked Get the recent media liked by the user.\n\t- GET /users/self Get information about the owner of the access token.\n\t- GET /users/self/media/recent Get the most recent media of the user.\n\t- GET /users/self/follows Get the list of users this user follows.\n\t- GET /users/self/followed-by Get the list of users this user is followed by.\n- 설명: \n\t- id 인자 혹은 현재 토큰의 context 기준으로 유저의 정보를 가져옵니다.\n- 특이사항:\n\t- id 린자가 토큰보다 우선순위를 갖습니다.\n- 인증:\n\t- 불필요",
+			"headers": [
+				{
+					"id": "pair_94a0adfe29e249abb6e57310314103e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524071423283.25,
+			"method": "POST",
+			"modified": 1524215711186,
+			"name": "user",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a2af368b90be45608dafc94482036c30",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query {\\n\\tsearch (q: \\\"Lee\\\") {\\n\\t\\tid\\n\\t\\tusername\\n\\t\\tfull_name\\n\\t}\\n}\"}"
+			},
+			"created": 1524071423277,
+			"description": "- 매칭되는 Instagram API: \n\t- GET /users/search\n- 설명:\n\t- full_name으로 유저를 검색합니다.\n- 특이사항:\n\t- 없음\n- 인증:\n\t- 불필요",
+			"headers": [
+				{
+					"id": "pair_e3332dcbd3484ecfbf72b5b6b75b57b6",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524071423277,
+			"method": "POST",
+			"modified": 1524215343405,
+			"name": "search",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_585ef1c34d5f4cee86278569e4f2eca1",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query {\\n\\tmedia (id: 1) {\\n\\t\\tid\\n\\t\\tmedia_type\\n\\t\\timages\\n\\t\\tvideos\\n\\t\\tshortcode\\n\\t\\tfilter\\n\\t\\tlikes {\\n\\t\\t\\tid\\n\\t\\t\\tusername\\n\\t\\t\\tfull_name\\n\\t\\t\\tbio\\n\\t\\t}\\n\\t}\\n}\"}"
+			},
+			"created": 1524154090484,
+			"description": "- 매칭되는 Instagram API: \n\t- GET /media/media-id\n\t- GET /media/shortcode/shortcode\n\t- GET /media/media-id/likes\n- 설명:\n\t- media_id 혹은 shortcode 기준으로 미디어를 가져옵니다.\n- 특이사항:\n\t- 하나의 endpoint에서 인자에 따라 동작하도록 구현했습니다.\n- 인증:\n\t- 불필요",
+			"headers": [
+				{
+					"id": "pair_94a0adfe29e249abb6e57310314103e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524071423289.5,
+			"method": "POST",
+			"modified": 1524215572467,
+			"name": "media",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ac8ad9ee470543a7a85250a77f8a7b1f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation {\\n\\tlogin (username: \\\"saystone\\\") {\\n\\t\\ttoken\\n\\t\\tuser {\\n\\t\\t\\tid\\n\\t\\t\\tusername\\n\\t\\t}\\n\\t}\\n}\"}"
+			},
+			"created": 1524191503995,
+			"description": "- 매칭되는 Instagram API:\n\t- 없음\n- 설명:\n\t- JWT 인증 처리 후 토큰을 반환합니다.\n- 특이사항:\n\t- 비밀번호는 설계때부터 따로 고려하지 않았습니다.\n- 인증:\n\t- 불필요",
+			"headers": [
+				{
+					"id": "pair_94a0adfe29e249abb6e57310314103e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524071423302,
+			"method": "POST",
+			"modified": 1524215858141,
+			"name": "login",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_45b5acea310b49858b69f89d6473e7b9",
+			"authentication": {
+				"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.sd4rLkb8ooi0lfXWtRlrIJ2h_atBrfXLPt0EYvpWQlw",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation {\\n\\tlike (media_id: 1) {\\n\\t\\tid\\n\\t\\tmedia_id\\n\\t\\tuser_id\\n\\t}\\n}\"}"
+			},
+			"created": 1524196996513,
+			"description": "- 매칭되는 Instagram API: \n\t- POST /media/media-id/likes\n- 설명:\n  - media_id를 기준으로 like합니다.\n- 특이사항:\n  - 이미 like했다면 에러를 뱉습니다. \n\t- 반환을 뭘로할지 항상 애매한 부분입니다.\n\t- 위 둘 다 정하기 나름인것 같습니다.\n- 인증: \n  - 필요\n",
+			"headers": [
+				{
+					"id": "pair_94a0adfe29e249abb6e57310314103e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524071423292.625,
+			"method": "POST",
+			"modified": 1524214696309,
+			"name": "like",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_7d18b0f0175f47ddaac7a1136831e9b4",
+			"authentication": {
+				"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.sd4rLkb8ooi0lfXWtRlrIJ2h_atBrfXLPt0EYvpWQlw",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation {\\n\\tfollow (user_id: 2) {\\n\\t\\tid\\n\\t\\tfollower_id\\n\\t\\tfollowing_id\\n\\t}\\n}\"}"
+			},
+			"created": 1524200818579,
+			"description": "- 매칭되는 Instagram API: \n\t- POST /users/user-id/relationship Modify the relationship with target user.\n- 설명: \n\t- user_id 대상을 팔로우합니다.\n- 특이사항:\n\t- Instagram API에는 팔로우 요청, 응답, 거절 등의 관계에 대한 상태까지 관리하고 있으나 여기서는 생략했습니다.\n- 인증:\n  - 필요",
+			"headers": [
+				{
+					"id": "pair_94a0adfe29e249abb6e57310314103e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524041338449.25,
+			"method": "POST",
+			"modified": 1524216040222,
+			"name": "follow",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ed598af260124830be6de1263e698a3e",
+			"authentication": {
+				"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.sd4rLkb8ooi0lfXWtRlrIJ2h_atBrfXLPt0EYvpWQlw",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation {\\n\\tunfollow (user_id: 2) {\\n\\t\\tid\\n\\t\\tfollower_id\\n\\t\\tfollowing_id\\n\\t}\\n}\"}"
+			},
+			"created": 1524201496543,
+			"description": "- 매칭되는 Instagram API: \n\t- POST /users/user-id/relationship Modify the relationship with target user.\n- 설명: \n\t- user_id 대상을 언팔로우합니다.\n- 특이사항:\n\t- Instagram API에는 팔로우 요청, 응답, 거절 등의 관계에 대한 상태까지 관리하고 있으나 여기서는 생략했습니다.\n- 인증:\n  - 필요",
+			"headers": [
+				{
+					"id": "pair_94a0adfe29e249abb6e57310314103e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524041338446.125,
+			"method": "POST",
+			"modified": 1524216057153,
+			"name": "unfollow",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_4762a1f58bd745eab7c88996e41c78ce",
+			"authentication": {
+				"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.sd4rLkb8ooi0lfXWtRlrIJ2h_atBrfXLPt0EYvpWQlw",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation {\\n\\tcreateMedia (\\n\\t\\tmedia_type: \\\"video\\\"\\n\\t\\timages: \\\"{\\\\\\\"low_resolution\\\\\\\":{\\\\\\\"url\\\\\\\":\\\\\\\"https://placeimg.com/50/50/any\\\\\\\",\\\\\\\"width\\\\\\\": 50,\\\\\\\"height\\\\\\\":50}}\\\"\\n\\t\\tfilter: \\\"Sephia\\\",\\n\\t\\tshortcode: \\\"1234567890\\\",\\n\\t\\tvideos: \\\"{\\\\\\\"low_resolution\\\\\\\":{\\\\\\\"url\\\\\\\":\\\\\\\"https://youtube.com\\\\\\\",\\\\\\\"width\\\\\\\": 50,\\\\\\\"height\\\\\\\":50}}\\\"\\n\\t) {\\n\\t\\tid\\n\\t\\tmedia_type\\n\\t\\timages\\n\\t\\tfilter\\n\\t\\tshortcode\\n\\t\\tvideos\\n\\t}\\n}\"}"
+			},
+			"created": 1524208242178,
+			"description": "- 매칭되는 Instagram API: \n\t- 없음\n- 설명:\n\t- 이미지 또는 비디오 정보를 생성합니다.\n- 특이사항:\n\t- images, videos의 경우 JSON string으로 입력합니다. postgres 컬럼은 JSON 타입인데 graphql 필드는 String 타입이라 일단 String에 맞췄습니다. (graphql 필드는 custom scalar로 개선의 여지가 있습니다.)\n\t- media_type의 경우 postgresql, graphql에서 enum으로 개선의 여지가 있습니다.\n- 인증:\n\t- 필요",
+			"headers": [
+				{
+					"id": "pair_94a0adfe29e249abb6e57310314103e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524071423295.75,
+			"method": "POST",
+			"modified": 1524212840197,
+			"name": "createMedia",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ea1e5c6dec9848e1b37935860fab56a8",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation {\\n\\tcreateUser (\\n\\t\\tusername: \\\"saystone2\\\",\\n\\t\\tfull_name: \\\"Seungjae Lee\\\"\\n\\t) {\\n\\t\\tid\\n\\t\\tusername\\n\\t\\tfull_name\\n\\t\\tbio\\n\\t\\tprofile_picture\\n\\t\\twebsite\\n\\t}\\n}\"}"
+			},
+			"created": 1524211867960,
+			"description": "- 매칭되는 Instagram API:\n\t- 없음\n- 설명:\n\t- 유저를 생성합니다.\n- 특이사항:\n\t- 없음\n- 인증:\n\t- 불필요",
+			"headers": [
+				{
+					"id": "pair_94a0adfe29e249abb6e57310314103e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524071423327,
+			"method": "POST",
+			"modified": 1524215433704,
+			"name": "createUser",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_576bdd8cc27a4dfb99be3522dd0b5bdf",
+			"authentication": {
+				"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.sd4rLkb8ooi0lfXWtRlrIJ2h_atBrfXLPt0EYvpWQlw",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation {\\n\\tdisLike (media_id: 1) {\\n\\t\\tid\\n\\t\\tmedia_id\\n\\t\\tuser_id\\n\\t}\\n}\"}"
+			},
+			"created": 1524214581606,
+			"description": "- 매칭되는 Instagram API: \n\t- DEL /media/media-id/likes\n- 설명:\n  - media_id를 기준으로 dislike합니다.\n- 특이사항:\n  - 이미 dislike했다면 에러를 뱉습니다. \n\t- 반환을 뭘로할지 항상 애매한 부분입니다.\n\t- 위 둘 다 정하기 나름인것 같습니다.\n- 인증: \n  - 필요",
+			"headers": [
+				{
+					"id": "pair_94a0adfe29e249abb6e57310314103e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1524071423291.0625,
+			"method": "POST",
+			"modified": 1524214666656,
+			"name": "dislike",
+			"parameters": [],
+			"parentId": "wrk_4cb7691daad84f019fe04d181c456ab8",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "instagooram.ap-northeast-2.elasticbeanstalk.com/graphql",
+			"_type": "request"
+		}
+	]
+}
